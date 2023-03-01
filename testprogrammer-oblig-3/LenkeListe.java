@@ -47,6 +47,7 @@ abstract class LenkeListe<E> implements Liste<E> {
         StringBuilder string = new StringBuilder();
         Node current = node;
         string.append(current.data + ", ");
+        System.out.println(size);
         for(int i = 0; i < size-1; i++) {
             current = current.nextNode;
             string.append(current.data + ", ");
@@ -60,11 +61,6 @@ abstract class LenkeListe<E> implements Liste<E> {
             this.data = data;
             this.nextNode = null;
         }
-
-        public E getData() {
-            return data;
-        }
-
 
     }
 }
