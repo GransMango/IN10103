@@ -11,7 +11,7 @@ public class IndeksertListe<E> extends LenkeListe<E>{
             node.nextNode = tempNode;
         } else {
             Node current = node;
-            // Starter på 2 ettersom at vi håndterte 1 i if setningen over
+            // fjerner en fra pos fordi vi har gjort en over
             for (int i = 0; i < pos-1; i++) {
                 current = current.nextNode;
             }

@@ -1,33 +1,47 @@
-public class Prioritetskoe<E extends Comparable<E>> extends IndeksertListe<E>  {
+public class Prioritetskoe<E extends Comparable<E>> extends IndeksertListe<E> {
     @Override
     public void leggTil(E x) {
         if (node == null) {
-            node = new Node(x);
-        } else if (node.nextNode == null) {
-            if (x.compareTo(node.data) >= 0) {
-                node.nextNode = new Node(x);
-            } if (x.compareTo(node.data) < 0) {
-                Node tempNode = node;
-                node = new Node(x);
-                node.nextNode = tempNode;
-            }
+            super.leggTil(x);
         } else {
-            Node next = node;
+            Node current = node; // 3
             int count = 0;
             while (true) {
-                if (next.data.compareTo(x) > 0 || next.nextNode == null) {
-                    System.out.println(next.data.compareTo(x));
-                    System.out.println(node.data + " " + x);
+                if (current.data.compareTo(x) > 0) {
+                    System.out.println(current.data.compareTo(x));
                     break;
                 }
-                next = next.nextNode;
+                if (current.nextNode == null) {
+                    count++;
+                    break;
+                }
+                current = current.nextNode;
                 count++;
             }
-            leggTil(count, x);
-            return;
+            super.leggTil(count, x);
         }
+    }
 
-        size++;
+    // SUPER BAD, FIND SOLUTION
+    @Override
+    public void leggTil(int pos, E x) {
+        leggTil(x);
     }
 
 }
+
+
+/*
+ else if (node.nextNode == null) {
+         if (x.compareTo(node.data)  0) {
+         node.nextNode = new Node(x);
+         } else if (x.compareTo(node.data) < 0) {
+        Node tempNode = node;
+        node = new Node(x);
+        node.nextNode = tempNode;
+        }
+        size++;
+        }
+
+
+ */

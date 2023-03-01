@@ -1,20 +1,19 @@
-import java.util.Random;
-
 public class Main {
     public static void main(String[] args) {
-        Random r = new Random();
-        Prioritetskoe<Integer> nyList = new Prioritetskoe<>();
         /*
-        for (int i = 100; i > 0; i--) {
-            nyList.leggTil(r.nextInt(100));
-        }
+        TestLeggTil tester = new TestLeggTil();
+        tester.testAll();
 
          */
-        nyList.leggTil(4);
-        nyList.leggTil(3);
-        nyList.leggTil(8);
+        Prioritetskoe<Integer> nyList = new Prioritetskoe<>();
+        for (int i = 100; i > 0; i--) {
+            nyList.leggTil(i);
+        }
         System.out.println(nyList);
-        System.out.println(nyList);
+        // System.out.println(nyList);
+       // System.out.println(nyList);
+
+
         }
 
 

@@ -46,14 +46,16 @@ abstract class LenkeListe<E> implements Liste<E> {
     public String toString() {
         StringBuilder string = new StringBuilder();
         Node current = node;
-        string.append(current.data + ", ");
-        System.out.println(size);
-        // tar en loop for lite, slik at det ikke ender med ","
-        for(int i = 0; i < size-2; i++) {
-            current = current.nextNode;
-            string.append(current.data + ", ");
+        string.append(current.data);
+        if (size > 1) {
+            string.append(", ");
+            // tar en loop for lite, slik at det ikke ender med ","
+            for (int i = 0; i < size - 2; i++) {
+                current = current.nextNode;
+                string.append(current.data).append(", ");
+            }
+            string.append(current.nextNode.data);
         }
-        string.append(current.nextNode.data);
         return string.toString();
     }
     public class Node {
