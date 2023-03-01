@@ -48,10 +48,12 @@ abstract class LenkeListe<E> implements Liste<E> {
         Node current = node;
         string.append(current.data + ", ");
         System.out.println(size);
-        for(int i = 0; i < size-1; i++) {
+        // tar en loop for lite, slik at det ikke ender med ","
+        for(int i = 0; i < size-2; i++) {
             current = current.nextNode;
             string.append(current.data + ", ");
         }
+        string.append(current.nextNode.data);
         return string.toString();
     }
     public class Node {

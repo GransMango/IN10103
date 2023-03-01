@@ -1,4 +1,5 @@
 public class Prioritetskoe<E extends Comparable<E>> extends IndeksertListe<E>  {
+    @Override
     public void leggTil(E x) {
         if (node == null) {
             node = new Node(x);
@@ -12,8 +13,13 @@ public class Prioritetskoe<E extends Comparable<E>> extends IndeksertListe<E>  {
             }
         } else {
             Node next = node;
-            int count = 1;
-            while (next.data.compareTo(x) > 0 || next.nextNode != null) {
+            int count = 0;
+            while (true) {
+                if (next.data.compareTo(x) > 0 || next.nextNode == null) {
+                    System.out.println(next.data.compareTo(x));
+                    System.out.println(node.data + " " + x);
+                    break;
+                }
                 next = next.nextNode;
                 count++;
             }
