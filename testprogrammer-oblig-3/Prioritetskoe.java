@@ -1,42 +1,29 @@
-public class Prioritetskoe<E extends Comparable<E>> extends IndeksertListe<E> {
+public class Prioritetskoe<E extends Comparable<E>> extends LenkeListe<E> {
     @Override
     public void leggTil(E x) {
         if (node == null) {
             super.leggTil(x);
+        } else if (node.data.compareTo(x) > 0) {
+            Node tempNode = node;
+            node = new Node(x);
+            node.nextNode = tempNode;
+            size++;
+        } else if (node.data.compareTo(x) <= 0) {
+            super.leggTil(x);
         } else {
             Node current = node; // 3
-            int count = 0;
-            while (true) {
-                if (current.data.compareTo(x) > 0) {
-                    System.out.println(current.data.compareTo(x));
-                    break;
-                }
-                if (current.nextNode == null) {
-                    count++;
-                    break;
-                }
+            for (int i = 1; i < size; i++) {
                 current = current.nextNode;
-                count++;
+                if (current.data.compareTo(x) > 0) {
+                    Node tempNode = current.nextNode;
+                    current.nextNode = new Node(x);
+                    current.nextNode.nextNode = tempNode;
+                    break;
+                }
             }
-            super.leggTil(count, x);
+            size++;
         }
     }
 
 
 }
-
-
-/*
- else if (node.nextNode == null) {
-         if (x.compareTo(node.data)  0) {
-         node.nextNode = new Node(x);
-         } else if (x.compareTo(node.data) < 0) {
-        Node tempNode = node;
-        node = new Node(x);
-        node.nextNode = tempNode;
-        }
-        size++;
-        }
-
-
- */

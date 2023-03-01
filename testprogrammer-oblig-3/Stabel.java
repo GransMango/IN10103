@@ -8,7 +8,6 @@ public class Stabel<E> extends LenkeListe<E>{
             node = new Node(x);
             node.nextNode = tempNode;
         }
-
         size++;
     }
 }
