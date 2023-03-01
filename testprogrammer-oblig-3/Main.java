@@ -5,10 +5,10 @@ public class Main {
         tester.testAll();
 
          */
-        Prioritetskoe<Integer> nyList = new Prioritetskoe<>();
-        for (int i = 100; i > 0; i--) {
-            nyList.leggTil(i);
-        }
+        IndeksertListe<Integer> nyList = new IndeksertListe<>();
+        nyList.leggTil(1);
+        nyList.leggTil(2);
+        nyList.fjern(0);
         System.out.println(nyList);
         // System.out.println(nyList);
        // System.out.println(nyList);

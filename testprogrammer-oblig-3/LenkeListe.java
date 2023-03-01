@@ -29,8 +29,6 @@ abstract class LenkeListe<E> implements Liste<E> {
     public void leggTil(E x) {
         if (node == null) {
             node = new Node(x);
-        } else if (node.nextNode == null) {
-            node.nextNode = new Node(x);
         } else {
             Node next = node;
             while(next.nextNode != null) {
@@ -38,7 +36,6 @@ abstract class LenkeListe<E> implements Liste<E> {
             }
             next.nextNode = new Node(x);
         }
-
         size++;
     }
 
@@ -58,7 +55,7 @@ abstract class LenkeListe<E> implements Liste<E> {
         }
         return string.toString();
     }
-    public class Node {
+    protected class Node {
         protected E data;
         protected Node nextNode;
         public Node (E data) {

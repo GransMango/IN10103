@@ -22,11 +22,6 @@ public class Prioritetskoe<E extends Comparable<E>> extends IndeksertListe<E> {
         }
     }
 
-    // SUPER BAD, FIND SOLUTION
-    @Override
-    public void leggTil(int pos, E x) {
-        leggTil(x);
-    }
 
 }
 

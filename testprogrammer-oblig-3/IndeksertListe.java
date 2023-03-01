@@ -11,8 +11,7 @@ public class IndeksertListe<E> extends LenkeListe<E>{
             node.nextNode = tempNode;
         } else {
             Node current = node;
-            // fjerner en fra pos fordi vi har gjort en over
-            for (int i = 0; i < pos-1; i++) {
+            for (int i = 1; i < pos; i++) {
                 current = current.nextNode;
             }
             Node tempNode = current.nextNode;
@@ -51,9 +50,11 @@ public class IndeksertListe<E> extends LenkeListe<E>{
         if (! (0 <= pos && pos<size)) {
             throw new UgyldigListeindeks(pos);
         }
+        if (pos == 0) {
+            return super.fjern();
+        }
 
         Node current = node;
-        // I er 2 fordi vi vil ha ett element tidligere enn pos
         for (int i = 1; i < pos; i++) {
             current = current.nextNode;
         }
