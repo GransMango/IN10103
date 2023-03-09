@@ -31,7 +31,6 @@ public class IndeksertListe<E> extends LenkeListe<E>{
             current = current.nextNode;
         }
         current.data = x;
-
     }
 
     public E hent(int pos) throws UgyldigListeindeks {

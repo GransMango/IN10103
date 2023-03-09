@@ -55,6 +55,7 @@ abstract class LenkeListe<E> implements Liste<E> {
         }
         return string.toString();
     }
+
     protected class Node {
         protected E data;
         protected Node nextNode;

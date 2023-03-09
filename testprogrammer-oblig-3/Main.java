@@ -1,9 +1,11 @@
 public class Main {
     public static void main(String[] args) {
-        Prioritetskoe<Integer> nyList = new Prioritetskoe<>();
-        nyList.leggTil(1);
-        nyList.leggTil(0);
-        nyList.leggTil(-2);
+        IndeksertListe<String> nyList = new IndeksertListe<>();
+        nyList.leggTil("A");
+        nyList.leggTil("B");
+        nyList.leggTil("C");
+        nyList.fjern();
+        nyList.sett(1, "D");
         System.out.println(nyList);
         }
 
