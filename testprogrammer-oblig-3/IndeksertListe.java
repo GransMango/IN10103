@@ -6,11 +6,11 @@ public class IndeksertListe<E> extends LenkeListe<E>{
         }
 
         if (pos == 0) {
-            Node tempNode = node;
-            node = new Node(x);
-            node.nextNode = tempNode;
+            Node tempNode = head;
+            head = new Node(x);
+            head.nextNode = tempNode;
         } else {
-            Node current = node;
+            Node current = head;
             for (int i = 1; i < pos; i++) {
                 current = current.nextNode;
             }
@@ -26,7 +26,7 @@ public class IndeksertListe<E> extends LenkeListe<E>{
             throw new UgyldigListeindeks(pos);
         }
 
-        Node current = node;
+        Node current = head;
         for (int i = 0; i < pos; i++) {
             current = current.nextNode;
         }
@@ -38,7 +38,7 @@ public class IndeksertListe<E> extends LenkeListe<E>{
             throw new UgyldigListeindeks(pos);
         }
 
-        Node current = node;
+        Node current = head;
         for (int i = 0; i < pos; i++) {
             current = current.nextNode;
         }
@@ -53,7 +53,7 @@ public class IndeksertListe<E> extends LenkeListe<E>{
             return super.fjern();
         }
 
-        Node current = node;
+        Node current = head;
         for (int i = 1; i < pos; i++) {
             current = current.nextNode;
         }

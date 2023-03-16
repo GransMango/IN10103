@@ -1,8 +1,8 @@
 abstract class LenkeListe<E> implements Liste<E> {
-    protected Node node;
+    protected Node head;
     protected int size;
     public LenkeListe() {
-        node = null;
+        head = null;
     }
 
     public int stoerrelse() {
@@ -10,7 +10,7 @@ abstract class LenkeListe<E> implements Liste<E> {
     }
 
     public E hent() {
-        return node.data;
+        return head.data;
     }
 
     public E fjern() throws UgyldigListeindeks {
@@ -18,19 +18,19 @@ abstract class LenkeListe<E> implements Liste<E> {
             // Ingen indeks blir gitt, antar 0 er greit?
             throw new UgyldigListeindeks(0);
         }
-        Node nextNode = node.nextNode;
-        Node removeNode = node;
-        node = nextNode;
+        Node nextNode = head.nextNode;
+        Node removeNode = head;
+        head = nextNode;
         size--;
         return removeNode.data;
 
     }
 
     public void leggTil(E x) {
-        if (node == null) {
-            node = new Node(x);
+        if (head == null) {
+            head = new Node(x);
         } else {
-            Node next = node;
+            Node next = head;
             while(next.nextNode != null) {
                 next = next.nextNode;
             }
@@ -42,7 +42,7 @@ abstract class LenkeListe<E> implements Liste<E> {
     @Override
     public String toString() {
         StringBuilder string = new StringBuilder();
-        Node current = node;
+        Node current = head;
         string.append(current.data);
         if (size > 1) {
             string.append(", ");

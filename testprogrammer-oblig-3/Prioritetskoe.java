@@ -1,17 +1,17 @@
 public class Prioritetskoe<E extends Comparable<E>> extends LenkeListe<E> {
     @Override
     public void leggTil(E x) {
-        if (node == null) {
+        if (head == null) {
             super.leggTil(x);
-        } else if (node.data.compareTo(x) > 0) {
-            Node tempNode = node;
-            node = new Node(x);
-            node.nextNode = tempNode;
+        } else if (head.data.compareTo(x) > 0) {
+            Node tempNode = head;
+            head = new Node(x);
+            head.nextNode = tempNode;
             size++;
-        } else if (node.data.compareTo(x) <= 0) {
+        } else if (head.data.compareTo(x) <= 0) {
             super.leggTil(x);
         } else {
-            Node current = node; // 3
+            Node current = head; // 3
             for (int i = 1; i < size; i++) {
                 current = current.nextNode;
                 if (current.data.compareTo(x) > 0) {

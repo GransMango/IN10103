@@ -1,12 +1,12 @@
 public class Stabel<E> extends LenkeListe<E>{
     @Override
     public void leggTil(E x) {
-        if (node == null) {
-            node = new Node(x);
+        if (head == null) {
+            head = new Node(x);
         } else {
-            Node tempNode = node;
-            node = new Node(x);
-            node.nextNode = tempNode;
+            Node tempNode = head;
+            head = new Node(x);
+            head.nextNode = tempNode;
         }
         size++;
     }
